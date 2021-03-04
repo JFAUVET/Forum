@@ -19,12 +19,12 @@ export class MessageService
 
   sendMessage (url : string, data : object) : Observable<PhpData>
   {
-    let urlDest = (environment.url + url +".php");
+    const urlDest = (environment.url + url +".php");
     const formData = new FormData();
     if ( data!=null && data != undefined )
     {
       for (const [key,value] of Object.entries(data) ) { formData.append(key,value); }
     }
-    return this.http.post<PhpData> (urlDest,formData,{withCredentials: true});
+    return this.http.post<PhpData> ( urlDest , formData , { withCredentials: true } );
   }
 }

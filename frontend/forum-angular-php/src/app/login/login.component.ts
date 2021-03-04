@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit
 {
   user="";
   password="";
-  errorMessage="Erreur";
+  errorMessage="";
 
   constructor(private servicemsg : MessageService, private router: Router) {}
 
@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit
 
   onClick()
   {
-    const data = { login:this.user, password:this.password };
-    const url="checklogin";
+    const data = { login:this.user, mdp:this.password };
+    const url="checkLogin";
 
     this.servicemsg.sendMessage(url,data).subscribe(
       message =>
