@@ -1,5 +1,5 @@
 <?php
-  require_once "config.php";
+  require_once($_SERVER["DOCUMENT_ROOT"] . '/Forum/backend/mysqlConnect.php');
 
   function requestUser($login,$mdp)
   {
@@ -16,4 +16,6 @@
     $user=$resultat["ID_auth"];
     return $user;
   }
+
+  requestUser("dssfd","sdqsd");
 ?>

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit
         {
           this.errorMessage = "";
           console.log(message);
-          // this.router.navigateByUrl("/cours");
+          this.router.navigateByUrl("/cours");
         }
 
         else
