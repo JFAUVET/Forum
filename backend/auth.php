@@ -1,11 +1,11 @@
 <?php
   session_start();
-  require_once $_SERVER['DOCUMENT_ROOT']."/backend/mysqlConnect.php";
-  require_once $_SERVER['DOCUMENT_ROOT']."/backend/requests/authentification/requestUser.php";
+  require_once "mysqlConnect.php";
+  require_once "requests/authentification/requestUser.php";
 
   function isAuthenticated()
   {
-    return (isset($_SESSION["username"]) && isset($_SESSION["ID"]));
+    return ( isset($_SESSION["username"]) && isset($_SESSION["ID"]) );
   }
 
   function authenticate()

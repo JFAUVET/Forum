@@ -3,7 +3,7 @@
   
   function checkLogin()
   {
-    if ( authenticate($_POST["login"],$_POST["mdp"]) )
+    if ( authenticate() )
       sendMessage("");
     else
       sendError("ACCESS DENIED");

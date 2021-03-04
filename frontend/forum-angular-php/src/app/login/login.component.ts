@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { callbackify } from 'util';
+import { Router } from '@angular/router';
 import { MessageService } from '../message/message.service';
 
 @Component({
@@ -11,10 +11,10 @@ import { MessageService } from '../message/message.service';
 export class LoginComponent implements OnInit
 {
   user="";
-  mdp="";
+  password="";
   errorMessage="Erreur";
 
-  constructor(private servicemsg : MessageService) {}
+  constructor(private servicemsg : MessageService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -23,17 +23,33 @@ export class LoginComponent implements OnInit
     console.log("login est: ");
     console.log(this.user);
     console.log("le mdp est: ");
-    console.log(this.mdp);
+    console.log(this.password);
   }
 
-  testMessage()
+  onClick()
   {
-    let data = { login: 'mon_login', password: 'mon_password' };
-    console.log(this.servicemsg.sendMessage("test",data));
+    const data = { login:this.user, password:this.password };
+    const url="checklogin";
+
+    this.servicemsg.sendMessage(url,data).subscribe(
+      message =>
+      {
+
+        if (message.status == 'ok')
+        {
+          this.errorMessage = "";
+          console.log(message);
+          // this.router.navigateByUrl("/cours");
+        }
+
+        else
+        {
+          this.errorMessage=message.data.reason;
+          console.log(message);
+        }
+
+      }
+    )
   }
 
-  // testLogin()
-  // {
-  //   if (this.errorMessage.length!=0)
-  // }
 }

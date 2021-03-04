@@ -38,7 +38,9 @@ require_once 'auth.php';
 
 // check qu'on est bien authentifié
 if ( (basename($_SERVER['SCRIPT_NAME']) != 'checkLogin.php' )  && ! isAuthenticated() ) {
-    sendError ('not authenticated');
+    // sendError ('not authenticated');
+    if (! isAuthenticated() ) { sendError("pas authent"); }
+    else { sendError("chui authent"); }
 }
   
 ?>

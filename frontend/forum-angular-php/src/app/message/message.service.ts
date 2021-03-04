@@ -5,8 +5,8 @@ import { environment } from 'src/environments/environment';
 
 interface PhpData
 {
-  status: boolean;
-  data: string;
+  status: string;
+  data: any;
 }
 
 @Injectable({
@@ -17,15 +17,6 @@ export class MessageService
 {
   constructor(private http : HttpClient) {}
 
-  getMessage() : Observable<PhpData>
-  {
-    return this.http.post<PhpData>(
-      'http://localhost/backend/checkLogin.php',
-      null,
-      {withCredentials: true}
-    );
-  }
-
   sendMessage (url : string, data : object) : Observable<PhpData>
   {
     let urlDest = (environment.url + url +".php");
@@ -34,6 +25,6 @@ export class MessageService
     {
       for (const [key,value] of Object.entries(data) ) { formData.append(key,value); }
     }
-    return this.http.post<PhpData> (urlDest,null,{withCredentials: true});
+    return this.http.post<PhpData> (urlDest,formData,{withCredentials: true});
   }
 }
