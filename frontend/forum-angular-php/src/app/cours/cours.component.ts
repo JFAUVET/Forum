@@ -6,30 +6,32 @@ import { MessageService } from '../message/message.service';
   templateUrl: './cours.component.html',
   styleUrls: ['./cours.component.scss']
 })
+
 export class CoursComponent implements OnInit
 {
-  constructor(private servicemsg : MessageService) { }
+  constructor(private servicemsg : MessageService) {}
 
+  
   ngOnInit(): void
   {
+    const ELEMENT_DATA: any[] = [];
+    let dataSource=null;
     const url="getCours";
     const data={};
-    let listeCours=[];
 
     this.servicemsg.sendMessage(url,data).subscribe(
-      message =>
+      listeCours =>
       {
-        if (message.status == 'ok')
+        if (listeCours.status == 'ok')
         {
-          console.log(message);
+          console.log(listeCours.data);
+          listeCours.data.forEach(element => {
+            ELEMENT_DATA.push(element);
+          });
+          dataSource=ELEMENT_DATA;
         }
-
-        else
-        {
-          console.log(message);
-        }
+        else {console.log(listeCours.data);}
       }
     )
   }
-
 }
