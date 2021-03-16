@@ -3,16 +3,8 @@
   <ng-container matColumnDef="nom">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom de la matière </th>
     <td mat-cell *matCellDef="let element">
-      <a routerLink="/topics/{{element.ID_cours}}" class="stretched-link"></a>
+      <a routerLink="/post/{{element.ID_cours}}" class="stretched-link"></a>
       {{element.nom}}
-    </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="nbr_sujet">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de sujets </th>
-    <td mat-cell *matCellDef="let element">
-      {{element.nbr_sujet}}
     </td>
   </ng-container>
 
