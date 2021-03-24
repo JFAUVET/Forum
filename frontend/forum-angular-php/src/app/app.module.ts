@@ -14,6 +14,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { TopicsComponent } from './topics/topics.component';
 import { PostsComponent } from './posts/posts.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PostsComponent } from './posts/posts.component';
     LoginComponent,
     CoursComponent,
     TopicsComponent,
-    PostsComponent
+    PostsComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,

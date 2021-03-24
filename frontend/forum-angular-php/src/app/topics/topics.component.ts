@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from '../message/message.service';
+import { BreadcrumbData } from '../breadcrumb/breadcrumb.component'
 
 interface DataSource
 {
@@ -23,6 +24,7 @@ export class TopicsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+  breadcrumb: BreadcrumbData[];
   ELEMENT_DATA=[];
   dataSource=new MatTableDataSource<DataSource>();
   displayedColumns: string[] = ['nom', 'nbr_post', 'dernier_message'];
@@ -32,7 +34,7 @@ export class TopicsComponent implements OnInit {
   ngOnInit(): void
   {
     let id_cours=this.activated_route.snapshot.params.id;
-    console.log(id_cours);
+    console.log(this.activated_route.snapshot.params);
     this.getData(id_cours);
     console.log(this.ELEMENT_DATA);
   }
@@ -52,6 +54,11 @@ export class TopicsComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort=this.sort;
           console.log(listeTopics.data);
+          this.breadcrumb=[
+            { nom: 'Mes cours', route: '/cours'},
+            // { nom: 'Anglais', route}
+            { nom: listeTopics.data[0].ID_cours, route: '' }
+          ]
         }
         else
         {

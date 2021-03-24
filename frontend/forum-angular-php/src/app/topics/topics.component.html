@@ -1,3 +1,9 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <app-breadcrumb *ngFor="let path of breadcrumb"
+                    [paths]="path"></app-breadcrumb>
+  </ol>
+</nav>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
   <!-- Position Column -->
   <ng-container matColumnDef="nom">

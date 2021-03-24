@@ -1,0 +1,7 @@
+<li *ngIf="paths.route.length != 0" class="breadcrumb-item">
+  <a *ngIf="paths.route.length != 0" [routerLink]="paths.route">{{paths.nom}}</a>
+</li>
+<li *ngIf="paths.route.length == 0" class="breadcrumb-item"></li>
+<li *ngIf="paths.route.length == 0" class="breadcrumb-item active" aria-current="page">
+  <span *ngIf="paths.route.length == 0">{{paths.nom}}</span>
+</li>

@@ -26,4 +26,9 @@
       return false;
     }
   }
+
+  if (authenticate())
+  {
+    echo "t co frr";
+  }
 ?>
