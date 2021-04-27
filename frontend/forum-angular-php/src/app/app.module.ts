@@ -15,6 +15,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { TopicsComponent } from './topics/topics.component';
 import { PostsComponent } from './posts/posts.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     CoursComponent,
     TopicsComponent,
     PostsComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
